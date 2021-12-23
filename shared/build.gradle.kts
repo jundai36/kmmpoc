@@ -3,6 +3,7 @@ plugins {
     kotlin("native.cocoapods")
     id("com.android.library")
     id("maven-publish")
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
 group = "com.example"
@@ -69,5 +70,13 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 31
+    }
+}
+
+multiplatformSwiftPackage {
+    packageName("KMMPOC")
+    swiftToolsVersion("5.5")
+    targetPlatforms {
+        iOS { v("14") }
     }
 }
