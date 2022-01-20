@@ -16,11 +16,11 @@ kotlin {
     //iosSimulatorArm64() sure all ios dependencies support this target
 
     cocoapods {
-        summary = "Some description for the Shared Module"
+        summary = "Kotlin Multiplatform SDK for Cx StoreItem"
         homepage = "Link to the Shared Module homepage"
         ios.deploymentTarget = "14.1"
         framework {
-            baseName = "shared"
+            baseName = "kmm-cx-store-item"
         }
     }
 
@@ -79,4 +79,5 @@ multiplatformSwiftPackage {
     targetPlatforms {
         iOS { v("14") }
     }
+    outputDirectory(File(rootDir, "/"))
 }
