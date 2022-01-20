@@ -6,7 +6,7 @@ plugins {
     id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
-group = "com.example"
+group = "com"
 version = "1.0"
 
 kotlin {
