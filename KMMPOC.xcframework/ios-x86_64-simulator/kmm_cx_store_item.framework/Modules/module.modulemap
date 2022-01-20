@@ -1,6 +1,0 @@
-framework module kmm_cx_store_item {
-    umbrella header "kmm_cx_store_item.h"
-
-    export *
-    module * { export * }
-}

@@ -1,0 +1,6 @@
+framework module KmmCxOrderCart {
+    umbrella header "KmmCxOrderCart.h"
+
+    export *
+    module * { export * }
+}

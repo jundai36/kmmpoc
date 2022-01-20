@@ -6,7 +6,7 @@ plugins {
     id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
-group = "com"
+group = "com.doordash"
 version = "1.0"
 
 kotlin {
@@ -20,7 +20,7 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         ios.deploymentTarget = "14.1"
         framework {
-            baseName = "kmm-cx-store-item"
+            baseName = "KmmCxOrderCart"
         }
     }
 
@@ -74,7 +74,7 @@ android {
 }
 
 multiplatformSwiftPackage {
-    packageName("KMMPOC")
+    packageName("CxKmmSDK")
     swiftToolsVersion("5.5")
     targetPlatforms {
         iOS { v("14") }

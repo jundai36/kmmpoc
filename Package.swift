@@ -2,20 +2,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "KMMPOC",
+    name: "CxKmmSDK",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "KMMPOC",
-            targets: ["KMMPOC"]
+            name: "CxKmmSDK",
+            targets: ["CxKmmSDK"]
         ),
     ],
     targets: [
         .binaryTarget(
-            name: "KMMPOC",
-            path: "./KMMPOC.xcframework"
+            name: "CxKmmSDK",
+            path: "./CxKmmSDK.xcframework"
         ),
     ]
 )

@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
     spec.license                  = ''
     spec.summary                  = 'Kotlin Multiplatform SDK for Cx StoreItem'
 
-    spec.vendored_frameworks      = "build/cocoapods/framework/kmm-cx-store-item.framework"
+    spec.vendored_frameworks      = "build/cocoapods/framework/KmmCxOrderCart.framework"
     spec.libraries                = "c++"
     spec.module_name              = "#{spec.name}_umbrella"
 
