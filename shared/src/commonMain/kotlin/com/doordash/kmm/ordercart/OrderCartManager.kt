@@ -9,9 +9,9 @@ package com.doordash.kmm.ordercart
 class OrderCartManager {
     fun validateNewItemFromSameStore(params: OrderCartValidationParams): Boolean {
         return params.numItems > 0 &&
-                params.orderCartStoreId == params.newItemStoreId &&
-                params.isDeleteExistingCart &&
-                params.isBundleOpportunity &&
+                params.orderCartStoreId != params.newItemStoreId &&
+                !params.isDeleteExistingCart &&
+                !params.isBundleOpportunity &&
                 params.fallbackSaveCartStoreId.isNullOrBlank()
     }
 }
