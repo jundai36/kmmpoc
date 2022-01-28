@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCKmmCxItemHeader, KCOCKmmCxItemOption, KCOCKmmCxItem, KCOCKmmCxItemOptionListSelectionMode, KCOCKmmCxItemOptionListContent, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
+@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemDetail, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
 
 @protocol KCOCBase64Encoder, KCOCKotlinComparable, KCOCKotlinIterator;
 
@@ -187,17 +187,17 @@ __attribute__((swift_name("Platform")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("KmmCxItem")))
-@interface KCOCKmmCxItem : KCOCBase
-- (instancetype)initWithHeader:(KCOCKmmCxItemHeader * _Nullable)header optionList:(NSArray<KCOCKmmCxItemOption *> *)optionList __attribute__((swift_name("init(header:optionList:)"))) __attribute__((objc_designated_initializer));
+__attribute__((swift_name("KmmCxItemDetail")))
+@interface KCOCKmmCxItemDetail : KCOCBase
+- (instancetype)initWithItemHeader:(KCOCKmmCxItemHeader * _Nullable)itemHeader optionLists:(NSArray<KCOCKmmCxItemOptionList *> *)optionLists __attribute__((swift_name("init(itemHeader:optionLists:)"))) __attribute__((objc_designated_initializer));
 - (KCOCKmmCxItemHeader * _Nullable)component1 __attribute__((swift_name("component1()")));
-- (NSArray<KCOCKmmCxItemOption *> *)component2 __attribute__((swift_name("component2()")));
-- (KCOCKmmCxItem *)doCopyHeader:(KCOCKmmCxItemHeader * _Nullable)header optionList:(NSArray<KCOCKmmCxItemOption *> *)optionList __attribute__((swift_name("doCopy(header:optionList:)")));
+- (NSArray<KCOCKmmCxItemOptionList *> *)component2 __attribute__((swift_name("component2()")));
+- (KCOCKmmCxItemDetail *)doCopyItemHeader:(KCOCKmmCxItemHeader * _Nullable)itemHeader optionLists:(NSArray<KCOCKmmCxItemOptionList *> *)optionLists __attribute__((swift_name("doCopy(itemHeader:optionLists:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) KCOCKmmCxItemHeader * _Nullable header __attribute__((swift_name("header")));
-@property (readonly) NSArray<KCOCKmmCxItemOption *> *optionList __attribute__((swift_name("optionList")));
+@property (readonly) KCOCKmmCxItemHeader * _Nullable itemHeader __attribute__((swift_name("itemHeader")));
+@property (readonly) NSArray<KCOCKmmCxItemOptionList *> *optionLists __attribute__((swift_name("optionLists")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -221,48 +221,9 @@ __attribute__((swift_name("KmmCxItemHeader")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("KmmCxItemOption")))
 @interface KCOCKmmCxItemOption : KCOCBase
-- (instancetype)initWithOptionId:(NSString *)optionId optionName:(NSString * _Nullable)optionName imageUrl:(NSString * _Nullable)imageUrl isOptional:(BOOL)isOptional subtitle:(NSString * _Nullable)subtitle selectionMode:(KCOCKmmCxItemOptionListSelectionMode *)selectionMode minNumOptions:(int32_t)minNumOptions maxNumOptions:(int32_t)maxNumOptions numFreeOptions:(int32_t)numFreeOptions maxAggregateOptionsQuantity:(KCOCInt * _Nullable)maxAggregateOptionsQuantity minAggregateOptionsQuantity:(KCOCInt * _Nullable)minAggregateOptionsQuantity minOptionChoiceQuantity:(KCOCInt * _Nullable)minOptionChoiceQuantity maxOptionChoiceQuantity:(KCOCInt * _Nullable)maxOptionChoiceQuantity caloricDisplayString:(NSString * _Nullable)caloricDisplayString content:(NSArray<KCOCKmmCxItemOptionListContent *> *)content __attribute__((swift_name("init(optionId:optionName:imageUrl:isOptional:subtitle:selectionMode:minNumOptions:maxNumOptions:numFreeOptions:maxAggregateOptionsQuantity:minAggregateOptionsQuantity:minOptionChoiceQuantity:maxOptionChoiceQuantity:caloricDisplayString:content:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id name:(NSString *)name imageUrl:(NSString * _Nullable)imageUrl description:(NSString * _Nullable)description priceDisplayString:(NSString * _Nullable)priceDisplayString caloricDisplayString:(NSString * _Nullable)caloricDisplayString quantity:(int32_t)quantity defaultQuantity:(KCOCInt * _Nullable)defaultQuantity isSelected:(BOOL)isSelected nestedItemDetail:(KCOCKmmCxItemDetail * _Nullable)nestedItemDetail __attribute__((swift_name("init(id:name:imageUrl:description:priceDisplayString:caloricDisplayString:quantity:defaultQuantity:isSelected:nestedItemDetail:)"))) __attribute__((objc_designated_initializer));
 - (NSString *)component1 __attribute__((swift_name("component1()")));
-- (KCOCInt * _Nullable)component10 __attribute__((swift_name("component10()")));
-- (KCOCInt * _Nullable)component11 __attribute__((swift_name("component11()")));
-- (KCOCInt * _Nullable)component12 __attribute__((swift_name("component12()")));
-- (KCOCInt * _Nullable)component13 __attribute__((swift_name("component13()")));
-- (NSString * _Nullable)component14 __attribute__((swift_name("component14()")));
-- (NSArray<KCOCKmmCxItemOptionListContent *> *)component15 __attribute__((swift_name("component15()")));
-- (NSString * _Nullable)component2 __attribute__((swift_name("component2()")));
-- (NSString * _Nullable)component3 __attribute__((swift_name("component3()")));
-- (BOOL)component4 __attribute__((swift_name("component4()")));
-- (NSString * _Nullable)component5 __attribute__((swift_name("component5()")));
-- (KCOCKmmCxItemOptionListSelectionMode *)component6 __attribute__((swift_name("component6()")));
-- (int32_t)component7 __attribute__((swift_name("component7()")));
-- (int32_t)component8 __attribute__((swift_name("component8()")));
-- (int32_t)component9 __attribute__((swift_name("component9()")));
-- (KCOCKmmCxItemOption *)doCopyOptionId:(NSString *)optionId optionName:(NSString * _Nullable)optionName imageUrl:(NSString * _Nullable)imageUrl isOptional:(BOOL)isOptional subtitle:(NSString * _Nullable)subtitle selectionMode:(KCOCKmmCxItemOptionListSelectionMode *)selectionMode minNumOptions:(int32_t)minNumOptions maxNumOptions:(int32_t)maxNumOptions numFreeOptions:(int32_t)numFreeOptions maxAggregateOptionsQuantity:(KCOCInt * _Nullable)maxAggregateOptionsQuantity minAggregateOptionsQuantity:(KCOCInt * _Nullable)minAggregateOptionsQuantity minOptionChoiceQuantity:(KCOCInt * _Nullable)minOptionChoiceQuantity maxOptionChoiceQuantity:(KCOCInt * _Nullable)maxOptionChoiceQuantity caloricDisplayString:(NSString * _Nullable)caloricDisplayString content:(NSArray<KCOCKmmCxItemOptionListContent *> *)content __attribute__((swift_name("doCopy(optionId:optionName:imageUrl:isOptional:subtitle:selectionMode:minNumOptions:maxNumOptions:numFreeOptions:maxAggregateOptionsQuantity:minAggregateOptionsQuantity:minOptionChoiceQuantity:maxOptionChoiceQuantity:caloricDisplayString:content:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString * _Nullable caloricDisplayString __attribute__((swift_name("caloricDisplayString")));
-@property (readonly) NSArray<KCOCKmmCxItemOptionListContent *> *content __attribute__((swift_name("content")));
-@property (readonly) NSString * _Nullable imageUrl __attribute__((swift_name("imageUrl")));
-@property (readonly) BOOL isOptional __attribute__((swift_name("isOptional")));
-@property (readonly) KCOCInt * _Nullable maxAggregateOptionsQuantity __attribute__((swift_name("maxAggregateOptionsQuantity")));
-@property (readonly) int32_t maxNumOptions __attribute__((swift_name("maxNumOptions")));
-@property (readonly) KCOCInt * _Nullable maxOptionChoiceQuantity __attribute__((swift_name("maxOptionChoiceQuantity")));
-@property (readonly) KCOCInt * _Nullable minAggregateOptionsQuantity __attribute__((swift_name("minAggregateOptionsQuantity")));
-@property (readonly) int32_t minNumOptions __attribute__((swift_name("minNumOptions")));
-@property (readonly) KCOCInt * _Nullable minOptionChoiceQuantity __attribute__((swift_name("minOptionChoiceQuantity")));
-@property (readonly) int32_t numFreeOptions __attribute__((swift_name("numFreeOptions")));
-@property (readonly) NSString *optionId __attribute__((swift_name("optionId")));
-@property (readonly) NSString * _Nullable optionName __attribute__((swift_name("optionName")));
-@property (readonly) KCOCKmmCxItemOptionListSelectionMode *selectionMode __attribute__((swift_name("selectionMode")));
-@property (readonly) NSString * _Nullable subtitle __attribute__((swift_name("subtitle")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("KmmCxItemOptionListContent")))
-@interface KCOCKmmCxItemOptionListContent : KCOCBase
-- (instancetype)initWithId:(NSString *)id name:(NSString *)name imageUrl:(NSString * _Nullable)imageUrl description:(NSString * _Nullable)description priceDisplayString:(NSString * _Nullable)priceDisplayString caloricDisplayString:(NSString * _Nullable)caloricDisplayString quantity:(int32_t)quantity defaultQuantity:(KCOCInt * _Nullable)defaultQuantity isSelected:(BOOL)isSelected __attribute__((swift_name("init(id:name:imageUrl:description:priceDisplayString:caloricDisplayString:quantity:defaultQuantity:isSelected:)"))) __attribute__((objc_designated_initializer));
-- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (KCOCKmmCxItemDetail * _Nullable)component10 __attribute__((swift_name("component10()")));
 - (NSString *)component2 __attribute__((swift_name("component2()")));
 - (NSString * _Nullable)component3 __attribute__((swift_name("component3()")));
 - (NSString * _Nullable)component4 __attribute__((swift_name("component4()")));
@@ -271,7 +232,7 @@ __attribute__((swift_name("KmmCxItemOptionListContent")))
 - (int32_t)component7 __attribute__((swift_name("component7()")));
 - (KCOCInt * _Nullable)component8 __attribute__((swift_name("component8()")));
 - (BOOL)component9 __attribute__((swift_name("component9()")));
-- (KCOCKmmCxItemOptionListContent *)doCopyId:(NSString *)id name:(NSString *)name imageUrl:(NSString * _Nullable)imageUrl description:(NSString * _Nullable)description priceDisplayString:(NSString * _Nullable)priceDisplayString caloricDisplayString:(NSString * _Nullable)caloricDisplayString quantity:(int32_t)quantity defaultQuantity:(KCOCInt * _Nullable)defaultQuantity isSelected:(BOOL)isSelected __attribute__((swift_name("doCopy(id:name:imageUrl:description:priceDisplayString:caloricDisplayString:quantity:defaultQuantity:isSelected:)")));
+- (KCOCKmmCxItemOption *)doCopyId:(NSString *)id name:(NSString *)name imageUrl:(NSString * _Nullable)imageUrl description:(NSString * _Nullable)description priceDisplayString:(NSString * _Nullable)priceDisplayString caloricDisplayString:(NSString * _Nullable)caloricDisplayString quantity:(int32_t)quantity defaultQuantity:(KCOCInt * _Nullable)defaultQuantity isSelected:(BOOL)isSelected nestedItemDetail:(KCOCKmmCxItemDetail * _Nullable)nestedItemDetail __attribute__((swift_name("doCopy(id:name:imageUrl:description:priceDisplayString:caloricDisplayString:quantity:defaultQuantity:isSelected:nestedItemDetail:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -282,8 +243,49 @@ __attribute__((swift_name("KmmCxItemOptionListContent")))
 @property (readonly) NSString * _Nullable imageUrl __attribute__((swift_name("imageUrl")));
 @property (readonly) BOOL isSelected __attribute__((swift_name("isSelected")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) KCOCKmmCxItemDetail * _Nullable nestedItemDetail __attribute__((swift_name("nestedItemDetail")));
 @property (readonly) NSString * _Nullable priceDisplayString __attribute__((swift_name("priceDisplayString")));
 @property (readonly) int32_t quantity __attribute__((swift_name("quantity")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KmmCxItemOptionList")))
+@interface KCOCKmmCxItemOptionList : KCOCBase
+- (instancetype)initWithId:(NSString *)id title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle imageUrl:(NSString * _Nullable)imageUrl isOptional:(BOOL)isOptional selectionMode:(KCOCKmmCxItemOptionListSelectionMode *)selectionMode minNumOptions:(int32_t)minNumOptions maxNumOptions:(int32_t)maxNumOptions numFreeOptions:(int32_t)numFreeOptions maxAggregateOptionsQuantity:(KCOCInt * _Nullable)maxAggregateOptionsQuantity minAggregateOptionsQuantity:(KCOCInt * _Nullable)minAggregateOptionsQuantity minOptionChoiceQuantity:(KCOCInt * _Nullable)minOptionChoiceQuantity maxOptionChoiceQuantity:(KCOCInt * _Nullable)maxOptionChoiceQuantity caloricDisplayString:(NSString * _Nullable)caloricDisplayString options:(NSArray<KCOCKmmCxItemOption *> *)options __attribute__((swift_name("init(id:title:subtitle:imageUrl:isOptional:selectionMode:minNumOptions:maxNumOptions:numFreeOptions:maxAggregateOptionsQuantity:minAggregateOptionsQuantity:minOptionChoiceQuantity:maxOptionChoiceQuantity:caloricDisplayString:options:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (KCOCInt * _Nullable)component10 __attribute__((swift_name("component10()")));
+- (KCOCInt * _Nullable)component11 __attribute__((swift_name("component11()")));
+- (KCOCInt * _Nullable)component12 __attribute__((swift_name("component12()")));
+- (KCOCInt * _Nullable)component13 __attribute__((swift_name("component13()")));
+- (NSString * _Nullable)component14 __attribute__((swift_name("component14()")));
+- (NSArray<KCOCKmmCxItemOption *> *)component15 __attribute__((swift_name("component15()")));
+- (NSString * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (NSString * _Nullable)component3 __attribute__((swift_name("component3()")));
+- (NSString * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (BOOL)component5 __attribute__((swift_name("component5()")));
+- (KCOCKmmCxItemOptionListSelectionMode *)component6 __attribute__((swift_name("component6()")));
+- (int32_t)component7 __attribute__((swift_name("component7()")));
+- (int32_t)component8 __attribute__((swift_name("component8()")));
+- (int32_t)component9 __attribute__((swift_name("component9()")));
+- (KCOCKmmCxItemOptionList *)doCopyId:(NSString *)id title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle imageUrl:(NSString * _Nullable)imageUrl isOptional:(BOOL)isOptional selectionMode:(KCOCKmmCxItemOptionListSelectionMode *)selectionMode minNumOptions:(int32_t)minNumOptions maxNumOptions:(int32_t)maxNumOptions numFreeOptions:(int32_t)numFreeOptions maxAggregateOptionsQuantity:(KCOCInt * _Nullable)maxAggregateOptionsQuantity minAggregateOptionsQuantity:(KCOCInt * _Nullable)minAggregateOptionsQuantity minOptionChoiceQuantity:(KCOCInt * _Nullable)minOptionChoiceQuantity maxOptionChoiceQuantity:(KCOCInt * _Nullable)maxOptionChoiceQuantity caloricDisplayString:(NSString * _Nullable)caloricDisplayString options:(NSArray<KCOCKmmCxItemOption *> *)options __attribute__((swift_name("doCopy(id:title:subtitle:imageUrl:isOptional:selectionMode:minNumOptions:maxNumOptions:numFreeOptions:maxAggregateOptionsQuantity:minAggregateOptionsQuantity:minOptionChoiceQuantity:maxOptionChoiceQuantity:caloricDisplayString:options:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString * _Nullable caloricDisplayString __attribute__((swift_name("caloricDisplayString")));
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString * _Nullable imageUrl __attribute__((swift_name("imageUrl")));
+@property (readonly) BOOL isOptional __attribute__((swift_name("isOptional")));
+@property (readonly) KCOCInt * _Nullable maxAggregateOptionsQuantity __attribute__((swift_name("maxAggregateOptionsQuantity")));
+@property (readonly) int32_t maxNumOptions __attribute__((swift_name("maxNumOptions")));
+@property (readonly) KCOCInt * _Nullable maxOptionChoiceQuantity __attribute__((swift_name("maxOptionChoiceQuantity")));
+@property (readonly) KCOCInt * _Nullable minAggregateOptionsQuantity __attribute__((swift_name("minAggregateOptionsQuantity")));
+@property (readonly) int32_t minNumOptions __attribute__((swift_name("minNumOptions")));
+@property (readonly) KCOCInt * _Nullable minOptionChoiceQuantity __attribute__((swift_name("minOptionChoiceQuantity")));
+@property (readonly) int32_t numFreeOptions __attribute__((swift_name("numFreeOptions")));
+@property (readonly) NSArray<KCOCKmmCxItemOption *> *options __attribute__((swift_name("options")));
+@property (readonly) KCOCKmmCxItemOptionListSelectionMode *selectionMode __attribute__((swift_name("selectionMode")));
+@property (readonly) NSString * _Nullable subtitle __attribute__((swift_name("subtitle")));
+@property (readonly) NSString * _Nullable title __attribute__((swift_name("title")));
 @end;
 
 __attribute__((swift_name("KotlinComparable")))

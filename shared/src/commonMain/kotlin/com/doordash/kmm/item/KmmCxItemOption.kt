@@ -1,19 +1,14 @@
 package com.doordash.kmm.item
 
 data class KmmCxItemOption(
-    val optionId: String,
-    val optionName: String?,
+    val id: String,
+    val name: String,
     val imageUrl: String?,
-    val isOptional: Boolean,
-    val subtitle: String?,
-    val selectionMode: KmmCxItemOptionListSelectionMode,
-    val minNumOptions: Int,
-    val maxNumOptions: Int,
-    val numFreeOptions: Int,
-    val maxAggregateOptionsQuantity: Int? = null,
-    val minAggregateOptionsQuantity: Int? = null,
-    val minOptionChoiceQuantity: Int? = null,
-    val maxOptionChoiceQuantity: Int? = null,
+    val description: String?,
+    val priceDisplayString: String?,
     val caloricDisplayString: String?,
-    val content: List<KmmCxItemOptionListContent> = emptyList()
+    val quantity: Int,
+    val defaultQuantity: Int?,
+    val isSelected: Boolean = false,
+    val nestedItemDetail: KmmCxItemDetail? = null
 )
