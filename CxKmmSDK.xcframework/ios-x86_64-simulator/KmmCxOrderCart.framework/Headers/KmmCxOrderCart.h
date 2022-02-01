@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemDetail, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
+@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCDataTypeMapping, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemDetail, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
 
 @protocol KCOCBase64Encoder, KCOCKotlinComparable, KCOCKotlinIterator;
 
@@ -168,6 +168,30 @@ __attribute__((swift_name("NativeBase64Encoder")))
 + (instancetype)nativeBase64Encoder __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) KCOCNativeBase64Encoder *shared __attribute__((swift_name("shared")));
 - (KCOCKotlinByteArray *)encodeSrc:(KCOCKotlinByteArray *)src __attribute__((swift_name("encode(src:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DataTypeMapping")))
+@interface KCOCDataTypeMapping : KCOCBase
+- (instancetype)initWithIntType:(int32_t)intType intTypeNullable:(KCOCInt * _Nullable)intTypeNullable constIntType:(int32_t)constIntType constIntTypeNullable:(KCOCInt * _Nullable)constIntTypeNullable constIntTypeNullableDefaultNull:(KCOCInt * _Nullable)constIntTypeNullableDefaultNull intTypeWithDefaultValue:(int32_t)intTypeWithDefaultValue intTypeNullableWithDefaultValue:(KCOCInt * _Nullable)intTypeNullableWithDefaultValue __attribute__((swift_name("init(intType:intTypeNullable:constIntType:constIntTypeNullable:constIntTypeNullableDefaultNull:intTypeWithDefaultValue:intTypeNullableWithDefaultValue:)"))) __attribute__((objc_designated_initializer));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (KCOCInt * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (int32_t)component3 __attribute__((swift_name("component3()")));
+- (KCOCInt * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (KCOCInt * _Nullable)component5 __attribute__((swift_name("component5()")));
+- (int32_t)component6 __attribute__((swift_name("component6()")));
+- (KCOCInt * _Nullable)component7 __attribute__((swift_name("component7()")));
+- (KCOCDataTypeMapping *)doCopyIntType:(int32_t)intType intTypeNullable:(KCOCInt * _Nullable)intTypeNullable constIntType:(int32_t)constIntType constIntTypeNullable:(KCOCInt * _Nullable)constIntTypeNullable constIntTypeNullableDefaultNull:(KCOCInt * _Nullable)constIntTypeNullableDefaultNull intTypeWithDefaultValue:(int32_t)intTypeWithDefaultValue intTypeNullableWithDefaultValue:(KCOCInt * _Nullable)intTypeNullableWithDefaultValue __attribute__((swift_name("doCopy(intType:intTypeNullable:constIntType:constIntTypeNullable:constIntTypeNullableDefaultNull:intTypeWithDefaultValue:intTypeNullableWithDefaultValue:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t constIntType __attribute__((swift_name("constIntType")));
+@property (readonly) KCOCInt * _Nullable constIntTypeNullable __attribute__((swift_name("constIntTypeNullable")));
+@property (readonly) KCOCInt * _Nullable constIntTypeNullableDefaultNull __attribute__((swift_name("constIntTypeNullableDefaultNull")));
+@property int32_t intType __attribute__((swift_name("intType")));
+@property KCOCInt * _Nullable intTypeNullable __attribute__((swift_name("intTypeNullable")));
+@property (readonly) KCOCInt * _Nullable intTypeNullableWithDefaultValue __attribute__((swift_name("intTypeNullableWithDefaultValue")));
+@property (readonly) int32_t intTypeWithDefaultValue __attribute__((swift_name("intTypeWithDefaultValue")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
