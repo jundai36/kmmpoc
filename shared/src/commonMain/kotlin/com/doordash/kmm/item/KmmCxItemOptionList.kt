@@ -16,4 +16,24 @@ data class KmmCxItemOptionList(
     val maxOptionChoiceQuantity: Int? = null,
     val caloricDisplayString: String?,
     val options: List<KmmCxItemOption> = emptyList()
-)
+) {
+    fun getFirstInvalidOption(): String? {
+        return when (selectionMode) {
+            KmmCxItemOptionListSelectionMode.SINGLE_SELECT -> getFirstInvalidSingleSelectionOption()
+            KmmCxItemOptionListSelectionMode.MULTI_SELECT -> getFirstInvalidMultiSelectionOption()
+            KmmCxItemOptionListSelectionMode.AGGREGATE_QUANTITY -> getFirstInvalidAggregateSelectionOption()
+        }
+    }
+
+    private fun getFirstInvalidSingleSelectionOption(): String? {
+        TODO()
+    }
+
+    private fun getFirstInvalidMultiSelectionOption(): String? {
+        TODO()
+    }
+
+    private fun getFirstInvalidAggregateSelectionOption(): String? {
+        TODO()
+    }
+}

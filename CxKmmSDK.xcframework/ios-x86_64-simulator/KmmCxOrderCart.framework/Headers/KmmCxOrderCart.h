@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCDataTypeMapping, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemDetail, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
+@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCDataTypeMapping, KCOCItemDetailValidator, KCOCKmmCxItemDetail, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
 
 @protocol KCOCBase64Encoder, KCOCKotlinComparable, KCOCKotlinIterator;
 
@@ -211,6 +211,17 @@ __attribute__((swift_name("Platform")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ItemDetailValidator")))
+@interface KCOCItemDetailValidator : KCOCBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)itemDetailValidator __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) KCOCItemDetailValidator *shared __attribute__((swift_name("shared")));
+- (BOOL)validateAggregateSelectionItemDetail:(KCOCKmmCxItemDetail *)itemDetail parentOptionId:(NSString *)parentOptionId selectedOptionId:(NSString *)selectedOptionId quantity:(int32_t)quantity __attribute__((swift_name("validateAggregateSelection(itemDetail:parentOptionId:selectedOptionId:quantity:)")));
+- (BOOL)validateMultiSelectionItemDetail:(KCOCKmmCxItemDetail *)itemDetail parentOptionId:(NSString *)parentOptionId selectedOptionId:(NSString *)selectedOptionId checked:(BOOL)checked __attribute__((swift_name("validateMultiSelection(itemDetail:parentOptionId:selectedOptionId:checked:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("KmmCxItemDetail")))
 @interface KCOCKmmCxItemDetail : KCOCBase
 - (instancetype)initWithItemHeader:(KCOCKmmCxItemHeader * _Nullable)itemHeader optionLists:(NSArray<KCOCKmmCxItemOptionList *> *)optionLists __attribute__((swift_name("init(itemHeader:optionLists:)"))) __attribute__((objc_designated_initializer));
@@ -293,6 +304,7 @@ __attribute__((swift_name("KmmCxItemOptionList")))
 - (int32_t)component9 __attribute__((swift_name("component9()")));
 - (KCOCKmmCxItemOptionList *)doCopyId:(NSString *)id title:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle imageUrl:(NSString * _Nullable)imageUrl isOptional:(BOOL)isOptional selectionMode:(KCOCKmmCxItemOptionListSelectionMode *)selectionMode minNumOptions:(int32_t)minNumOptions maxNumOptions:(int32_t)maxNumOptions numFreeOptions:(int32_t)numFreeOptions maxAggregateOptionsQuantity:(KCOCInt * _Nullable)maxAggregateOptionsQuantity minAggregateOptionsQuantity:(KCOCInt * _Nullable)minAggregateOptionsQuantity minOptionChoiceQuantity:(KCOCInt * _Nullable)minOptionChoiceQuantity maxOptionChoiceQuantity:(KCOCInt * _Nullable)maxOptionChoiceQuantity caloricDisplayString:(NSString * _Nullable)caloricDisplayString options:(NSArray<KCOCKmmCxItemOption *> *)options __attribute__((swift_name("doCopy(id:title:subtitle:imageUrl:isOptional:selectionMode:minNumOptions:maxNumOptions:numFreeOptions:maxAggregateOptionsQuantity:minAggregateOptionsQuantity:minOptionChoiceQuantity:maxOptionChoiceQuantity:caloricDisplayString:options:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSString * _Nullable)getFirstInvalidOption __attribute__((swift_name("getFirstInvalidOption()")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString * _Nullable caloricDisplayString __attribute__((swift_name("caloricDisplayString")));
