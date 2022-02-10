@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCDataTypeMapping, KCOCItemDetailValidator, KCOCKmmCxItemDetail, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
+@class KCOCKotlinByteArray, KCOCBase64Factory, KCOCNativeBase64Encoder, KCOCDataTypeMapping, KCOCItemDetailValidator, KCOCKmmCxItemDetail, KCOCKmmCxItemHeader, KCOCKmmCxItemOptionList, KCOCKmmCxItemOption, KCOCKmmCxItemOptionListSelectionMode, KCOCKotlinEnumCompanion, KCOCKotlinEnum<E>, KCOCKmmCxItemOptionListSelectionModeCompanion, KCOCKotlinArray<T>, KCOCKmmCxItemSelectedOption, KCOCKmmCxItemSelectedOptionList, KCOCKmmCxOrderCartValidationParams, KCOCKotlinByteIterator;
 
 @protocol KCOCBase64Encoder, KCOCKotlinComparable, KCOCKotlinIterator;
 
@@ -173,7 +173,7 @@ __attribute__((swift_name("NativeBase64Encoder")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DataTypeMapping")))
 @interface KCOCDataTypeMapping : KCOCBase
-- (instancetype)initWithIntType:(int32_t)intType intTypeNullable:(KCOCInt * _Nullable)intTypeNullable constIntType:(int32_t)constIntType constIntTypeNullable:(KCOCInt * _Nullable)constIntTypeNullable constIntTypeNullableDefaultNull:(KCOCInt * _Nullable)constIntTypeNullableDefaultNull intTypeWithDefaultValue:(int32_t)intTypeWithDefaultValue intTypeNullableWithDefaultValue:(KCOCInt * _Nullable)intTypeNullableWithDefaultValue __attribute__((swift_name("init(intType:intTypeNullable:constIntType:constIntTypeNullable:constIntTypeNullableDefaultNull:intTypeWithDefaultValue:intTypeNullableWithDefaultValue:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithIntType:(int32_t)intType intTypeNullable:(KCOCInt * _Nullable)intTypeNullable constIntType:(int32_t)constIntType constIntTypeNullable:(KCOCInt * _Nullable)constIntTypeNullable constIntTypeNullableDefaultNull:(KCOCInt * _Nullable)constIntTypeNullableDefaultNull intTypeWithDefaultValue:(int32_t)intTypeWithDefaultValue intTypeNullableWithDefaultValue:(KCOCInt * _Nullable)intTypeNullableWithDefaultValue eA:(BOOL)eA __attribute__((swift_name("init(intType:intTypeNullable:constIntType:constIntTypeNullable:constIntTypeNullableDefaultNull:intTypeWithDefaultValue:intTypeNullableWithDefaultValue:eA:)"))) __attribute__((objc_designated_initializer));
 - (int32_t)component1 __attribute__((swift_name("component1()")));
 - (KCOCInt * _Nullable)component2 __attribute__((swift_name("component2()")));
 - (int32_t)component3 __attribute__((swift_name("component3()")));
@@ -181,13 +181,15 @@ __attribute__((swift_name("DataTypeMapping")))
 - (KCOCInt * _Nullable)component5 __attribute__((swift_name("component5()")));
 - (int32_t)component6 __attribute__((swift_name("component6()")));
 - (KCOCInt * _Nullable)component7 __attribute__((swift_name("component7()")));
-- (KCOCDataTypeMapping *)doCopyIntType:(int32_t)intType intTypeNullable:(KCOCInt * _Nullable)intTypeNullable constIntType:(int32_t)constIntType constIntTypeNullable:(KCOCInt * _Nullable)constIntTypeNullable constIntTypeNullableDefaultNull:(KCOCInt * _Nullable)constIntTypeNullableDefaultNull intTypeWithDefaultValue:(int32_t)intTypeWithDefaultValue intTypeNullableWithDefaultValue:(KCOCInt * _Nullable)intTypeNullableWithDefaultValue __attribute__((swift_name("doCopy(intType:intTypeNullable:constIntType:constIntTypeNullable:constIntTypeNullableDefaultNull:intTypeWithDefaultValue:intTypeNullableWithDefaultValue:)")));
+- (BOOL)component8 __attribute__((swift_name("component8()")));
+- (KCOCDataTypeMapping *)doCopyIntType:(int32_t)intType intTypeNullable:(KCOCInt * _Nullable)intTypeNullable constIntType:(int32_t)constIntType constIntTypeNullable:(KCOCInt * _Nullable)constIntTypeNullable constIntTypeNullableDefaultNull:(KCOCInt * _Nullable)constIntTypeNullableDefaultNull intTypeWithDefaultValue:(int32_t)intTypeWithDefaultValue intTypeNullableWithDefaultValue:(KCOCInt * _Nullable)intTypeNullableWithDefaultValue eA:(BOOL)eA __attribute__((swift_name("doCopy(intType:intTypeNullable:constIntType:constIntTypeNullable:constIntTypeNullableDefaultNull:intTypeWithDefaultValue:intTypeNullableWithDefaultValue:eA:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) int32_t constIntType __attribute__((swift_name("constIntType")));
 @property (readonly) KCOCInt * _Nullable constIntTypeNullable __attribute__((swift_name("constIntTypeNullable")));
 @property (readonly) KCOCInt * _Nullable constIntTypeNullableDefaultNull __attribute__((swift_name("constIntTypeNullableDefaultNull")));
+@property (readonly) BOOL eA __attribute__((swift_name("eA")));
 @property int32_t intType __attribute__((swift_name("intType")));
 @property KCOCInt * _Nullable intTypeNullable __attribute__((swift_name("intTypeNullable")));
 @property (readonly) KCOCInt * _Nullable intTypeNullableWithDefaultValue __attribute__((swift_name("intTypeNullableWithDefaultValue")));
@@ -231,6 +233,7 @@ __attribute__((swift_name("KmmCxItemDetail")))
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+- (KCOCKmmCxItemDetail *)updateSelectionSelectedOptionListId:(NSString *)selectedOptionListId selectedOption:(KCOCKmmCxItemOption *)selectedOption __attribute__((swift_name("updateSelection(selectedOptionListId:selectedOption:)")));
 @property (readonly) KCOCKmmCxItemHeader * _Nullable itemHeader __attribute__((swift_name("itemHeader")));
 @property (readonly) NSArray<KCOCKmmCxItemOptionList *> *optionLists __attribute__((swift_name("optionLists")));
 @end;
@@ -364,6 +367,41 @@ __attribute__((swift_name("KmmCxItemOptionListSelectionMode.Companion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) KCOCKmmCxItemOptionListSelectionModeCompanion *shared __attribute__((swift_name("shared")));
 - (KCOCKmmCxItemOptionListSelectionMode *)fromStringSelectionMode:(NSString * _Nullable)selectionMode __attribute__((swift_name("fromString(selectionMode:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KmmCxItemSelectedOption")))
+@interface KCOCKmmCxItemSelectedOption : KCOCBase
+- (instancetype)initWithId:(NSString *)id quantity:(int32_t)quantity __attribute__((swift_name("init(id:quantity:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (KCOCKmmCxItemSelectedOption *)doCopyId:(NSString *)id __attribute__((swift_name("doCopy(id:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSArray<KCOCKmmCxItemSelectedOption *> *)getAllSelectedOptions __attribute__((swift_name("getAllSelectedOptions()")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property NSDictionary<NSString *, KCOCKmmCxItemSelectedOptionList *> *embeddedOptionLists __attribute__((swift_name("embeddedOptionLists")));
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property BOOL nestedOptionsMeetMinimumRequirements __attribute__((swift_name("nestedOptionsMeetMinimumRequirements")));
+@property int32_t quantity __attribute__((swift_name("quantity")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KmmCxItemSelectedOptionList")))
+@interface KCOCKmmCxItemSelectedOptionList : KCOCBase
+- (instancetype)initWithId:(NSString *)id selectedOptions:(NSDictionary<NSString *, KCOCKmmCxItemSelectedOption *> *)selectedOptions __attribute__((swift_name("init(id:selectedOptions:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id __attribute__((swift_name("init(id:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (KCOCKmmCxItemSelectedOptionList *)doCopyId:(NSString *)id __attribute__((swift_name("doCopy(id:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSArray<KCOCKmmCxItemSelectedOption *> *)getAllSelectedOptions __attribute__((swift_name("getAllSelectedOptions()")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property int32_t selectedAmount __attribute__((swift_name("selectedAmount")));
+@property NSSet<NSString *> *selectedMultipleUniqueOptionIdentifiers __attribute__((swift_name("selectedMultipleUniqueOptionIdentifiers")));
+@property NSDictionary<NSString *, KCOCKmmCxItemSelectedOption *> *selectedOptions __attribute__((swift_name("selectedOptions")));
+@property NSString * _Nullable selectedSingleOptionIdentifier __attribute__((swift_name("selectedSingleOptionIdentifier")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

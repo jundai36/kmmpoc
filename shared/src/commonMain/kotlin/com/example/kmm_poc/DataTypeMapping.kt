@@ -8,4 +8,5 @@ data class DataTypeMapping(
     val constIntTypeNullableDefaultNull: Int? = null,
     val intTypeWithDefaultValue: Int = 10,
     val intTypeNullableWithDefaultValue: Int? = 10,
+    val eA: Boolean
 )

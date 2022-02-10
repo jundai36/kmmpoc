@@ -27,7 +27,7 @@ object ItemDetailValidator {
             it.id == parentOptionId
         }?.let {
             val selectedQuantity = it.options.filterNot { option ->
-                option.id != selectedOptionId
+                option.id == selectedOptionId
             }.sumOf { option ->
                 option.quantity
             }
